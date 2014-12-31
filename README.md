@@ -14,6 +14,11 @@ The target board is a small ADI Blackfin board and was developed by Kaneko-Syste
 
 I am trying to use mruby on the ADI Blackfin board and am learning mruby in this project.
 
+# The Goal
+
+The goal of this project is very simple.
+Running mruby on the target platform is the goal.
+
 # Requirement
 
 ## UCB-BF512-B (Kaneko-System)
