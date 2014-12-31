@@ -15,19 +15,19 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 
 # Requirement
 
-## UCB-BF512-B (Developed by Kaneko-System)
+## UCB-BF512-B (Kaneko-System)
 
 ![](doc/images/UCB-BF512-B-COMPONENT.jpg)
 
 ![](doc/images/UCB-BF512-B-SOLDER.jpg)
 
-## UCB-BF512-EXT-A (Developed by Kaneko-System)
+## UCB-BF512-EXT-A (Kaneko-System)
 
 ![](doc/images/UCB-BF512-EXT-A-COMPONENT.jpg)
 
 ![](doc/images/UCB-BF512-EXT-A-SOLDER.jpg)
 
-## TTL-232R-3V3
+## TTL-232R-3V3 (FTDI)
 
 ![](doc/images/TTL-232R-3V3.jpg)
 
@@ -55,7 +55,8 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
   * UCB-BF512-EXT-A : <http://dsps.shop-pro.jp/?pid=82796604>
     * Board Schematic : <http://kaneko-sys.co.jp/datasheet/ucb-bf512-ext/UCB-BF512-EXT-A.pdf>
   * Support Page : <http://kaneko-sys.co.jp/support/>
-    * Please do NOT ask them about this project!
+    * *Please do NOT ask them about this project!*
+    * *Please see also the license for this project!*
 
 ## For the flash writer
 
