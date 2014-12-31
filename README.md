@@ -68,14 +68,6 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 
 * <http://www.ftdichip.com/Products/Cables/USBTTLSerial.htm>
 
-# License
-
-* The license is MIT.
-
-# Author
-
-Shinichiro Nakamura (CuBeatSystems) @shintamainjp
-
 # The development steps
 
 1. Get the target board for the mruby platform.
@@ -87,4 +79,11 @@ Shinichiro Nakamura (CuBeatSystems) @shintamainjp
 4. Compile 'uart\_test' for checking your environment.
   * Watch the output of UART, You will see some characters from the test program.
 
+# License
+
+* The license is MIT.
+
+# Author
+
+Shinichiro Nakamura (CuBeatSystems) @shintamainjp
 
