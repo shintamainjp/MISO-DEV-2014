@@ -37,6 +37,10 @@ Running mruby on the target platform is the goal.
 
 ![](doc/images/TTL-232R-3V3.jpg)
 
+# Memory Map
+
+![](doc/images/BF512-memmap.png)
+
 # Install
 
 * Download mruby version 1.1.0 from <http://forum.mruby.org/download/source/mruby-1.1.0.tar.gz>.
