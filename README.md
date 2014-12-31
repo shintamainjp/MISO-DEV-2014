@@ -39,7 +39,7 @@ Running mruby on the target platform is the goal.
 
 # Memory Map
 
-![](doc/images/BF512-memmap.png)
+![](doc/images/bf512-memmap.png)
 
 # Install
 
