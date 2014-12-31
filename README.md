@@ -14,8 +14,7 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 
 * UCB-BF512-B (developed by Kaneko-System)
 ![](doc/images/UCB-BF512-B-COMPONENT.jpg)
-
-# Usage
+![](doc/images/UCB-BF512-B-SOLDER.jpg)
 
 # Install
 
@@ -23,17 +22,18 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 * Download the reference for the target board from <http://kaneko-sys.co.jp/datasheet/ucb-bf512/UCB-BF512_users_manual_V4.pdf>.
 * Download the schematic for the target board from <http://kaneko-sys.co.jp/datasheet/ucb-bf512/UCB-BF512-B_schematic_V1.pdf>.
 
-# Demo
-
-# Contribution
-
 # References
 
-* http://forum.mruby.org/
-  * http://forum.mruby.org/download/index3.html
+## for mruby
 
-* http://kaneko-sys.co.jp/
-  * http://kaneko-sys.co.jp/support/
+* <http://forum.mruby.org/>
+  * <http://forum.mruby.org/download/index3.html>
+  * <https://github.com/mruby-Forum/mruby>
+
+## for the ADI Blackfin board
+
+* <http://kaneko-sys.co.jp/>
+  * <http://kaneko-sys.co.jp/support/>
 
 # License
 
