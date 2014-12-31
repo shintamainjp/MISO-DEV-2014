@@ -10,13 +10,10 @@ This mruby project is my first mruby project.
 The target board is a small ADI Blackfin board and was developed by Kaneko-System in Japan.
 I am trying to use mruby on the ADI Blackfin board and am learning mruby in this project.
 
-# Demo
-
-
-
 # Requirement
 
-* a small embedded system and the development tools
+* UCB-BF512-B (developed by Kaneko-System)
+![](doc/images/UCB-BF512-B-COMPONENT.jpg)
 
 # Usage
 
@@ -25,6 +22,8 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 * Download mruby version 1.1.0 from <http://forum.mruby.org/download/source/mruby-1.1.0.tar.gz>.
 * Download the reference for the target board from <http://kaneko-sys.co.jp/datasheet/ucb-bf512/UCB-BF512_users_manual_V4.pdf>.
 * Download the schematic for the target board from <http://kaneko-sys.co.jp/datasheet/ucb-bf512/UCB-BF512-B_schematic_V1.pdf>.
+
+# Demo
 
 # Contribution
 
