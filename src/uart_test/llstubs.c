@@ -1,5 +1,5 @@
 /**
- * @file main.c
+ * @file llstubs.c
  * @author Shinichiro Nakamura
  * @copyright
  * ===============================================================
@@ -30,35 +30,67 @@
  * ===============================================================
  */
 
-#include "cpu.h"
-#include "mruby.h"
+/**
+ * @note Low Level Stubs for Newlib.
+ *
+ * @see http://blackfin.uclinux.org/doku.php?id=toolchain:bare_metal:newlib
+ * @see https://docs.blackfin.uclinux.org/doku.php?id=toolchain:bare_metal:compile
+ * @see https://docs.blackfin.uclinux.org/doku.php?id=toolchain:bare_metal:link
+ */
 
-static void mruby_test(void)
+#include <stdio.h>
+#include <errno.h>
+#include <cdefBF512.h>
+#include <sys/stat.h>
+#include <gcc.h>
+
+int _open(const char *name, int flags, int mode)
 {
-  mrb_state *mrb = mrb_open();
-  mrb_close(mrb);
+  errno = ENOSYS;
+  return -1;
 }
 
-static void uart_test(void)
+int _close(int file)
+{
+  errno = EBADF;
+  return -1;
+}
+
+int _write(int file, char *buf, int nbytes)
 {
   int i;
-  for (i = 0; i < 10; i++) {
-    cpu_uart_putc('a');
-    cpu_uart_putc('b');
-    cpu_uart_putc('c');
+
+  for (i = 0; i < nbytes; i++) {
+    cpu_uart_putc(*buf++);
   }
+
+  return nbytes;
 }
 
-int main(void)
+int _read(int file, char *buf, int nbytes)
 {
-  cpu_init();
+  int i;
 
-  mruby_test();
-  uart_test();
-
-  while (1) {
+  for (i = 0; i < nbytes; i++) {
+    buf[i] = cpu_uart_getc();
   }
 
-  return 0;
+  return nbytes;
+}
+
+int _fstat(int file, struct stat *st)
+{
+  st->st_mode = S_IFCHR;
+  return  0;
+}
+
+int _lseek(int file, int offset, int whence)
+{
+  return  0;
+}
+
+int _isatty(int file)
+{
+  return  1;
 }
 

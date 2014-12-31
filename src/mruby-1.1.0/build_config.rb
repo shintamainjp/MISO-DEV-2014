@@ -83,6 +83,60 @@ MRuby::Build.new do |conf|
   # conf.enable_bintest
 end
 
+MRuby::CrossBuild.new('blackfin') do |conf|
+
+  # C compiler settings
+  conf.cc do |cc|
+     cc.command = ENV['CC'] || 'bfin-elf-gcc'
+     cc.flags = [ENV['CFLAGS'] || []]
+     cc.defines << %w(-mcpu=bf512-any)
+     cc.defines << %w(-std=gnu89)
+     cc.defines << %w(-gdwarf-2)
+     cc.defines << %w(-O2)
+     cc.defines << %w(-fmessage-length=0)
+     cc.defines << %w(-Wall)
+     cc.defines << %w(-Wextra)
+# cc.flags << %w(-DMRB_USE_FLOAT)
+     cc.defines << %w(MRB_HEAP_PAGE_SIZE=32)
+     cc.defines << %w(MRB_IREP_ARRAY_INIT_SIZE=128u)
+     cc.defines << %w(MRB_USE_IV_SEGLIST)
+     cc.defines << %w(KHASH_DEFAULT_SIZE=8)
+     cc.defines << %w(MRB_STR_BUF_MIN_SIZE=20)
+# cc.defines << %w(DISABLE_STDIO)
+     cc.defines << %w(MRB_GC_STRESS)
+     cc.defines << %w(POOL_PAGE_SIZE=256)
+     cc.include_paths = ["#{root}/include"]
+     cc.defines = %w(DISABLE_GEMS)
+     cc.option_include_path = '-I%s'
+     cc.option_define = '-D%s'
+     cc.compile_options = "%{flags} -MMD -o %{outfile} -c %{infile}"
+  end
+
+  # Linker settings
+  conf.linker do |linker|
+     linker.command = ENV['LD'] || 'bfin-elf-gcc'
+     linker.flags = [ENV['LDFLAGS'] || %w(-mcpu=bf512-any -Wl,-Map=result.map,--cref,--gc-sections)]
+     linker.flags_before_libraries = []
+     linker.libraries = %w(c gcc bfdsp m)
+     linker.flags_after_libraries = []
+     linker.library_paths = []
+     linker.option_library = '-l%s'
+     linker.option_library_path = '-L%s'
+     linker.link_options = "%{flags} -o %{outfile} %{objs} %{libs}"
+  end
+
+  # Archiver settings
+   conf.archiver do |archiver|
+     archiver.command = ENV['AR'] || 'bfin-elf-ar'
+     archiver.archive_options = 'rs %{outfile} %{objs}'
+   end
+
+   conf.bins = []
+   conf.build_mrbtest_lib_only
+#   conf.gem :core => "mruby-toplevel-ext"
+#   conf.gem :core => "mruby-fiber"
+end
+
 MRuby::Build.new('host-debug') do |conf|
   # load specific toolchain settings
 

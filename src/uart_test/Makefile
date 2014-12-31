@@ -10,6 +10,7 @@ CSRC   += ${shell ls *.c}
 ASRC   +=
 
 DIRS   += .
+DIRS   += ../mruby-1.1.0/include
 
 VPATH   = $(DIRS)
 
@@ -42,8 +43,8 @@ DEBUG   = dwarf-2
 #
 # Include dirs, library dirs and definitions
 #
-LIBS    =
-LIBDIRS =
+LIBS    = mruby m c bfdsp
+LIBDIRS = ../mruby-1.1.0/build/blackfin/lib/
 INCDIRS = $(DIRS)
 DEFS    =
 ADEFS   =
