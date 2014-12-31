@@ -18,6 +18,10 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 
 ![](doc/images/UCB-BF512-B-SOLDER.jpg)
 
+* TTL-232R-3V3
+
+![](doc/images/TTL-232R-3V3.jpg)
+
 # Install
 
 * Download mruby version 1.1.0 from <http://forum.mruby.org/download/source/mruby-1.1.0.tar.gz>.
@@ -41,6 +45,10 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 
 * <http://cubeatsystems.com/software/bfin-blueboot/bfin-blueboot_ja.html>
 * <http://cubeatsystems.com/software/bfin-blueboot/bfin-blueboot_en.html>
+
+## For the serial cable
+
+* <http://www.ftdichip.com/Products/Cables/USBTTLSerial.htm>
 
 # License
 
