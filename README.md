@@ -1,7 +1,8 @@
 # What's the 'MISO-DEV-2014'
 
 A last day of a year, Japanese people called it 'O-O-MI-SO-KA'.
-This 'MISO-DEV-2014' is a project on the last day of 2014 using mruby.
+One of the aliases is 'MISOKA' and I created the project name 'MISO-DEV' from 'the short alias'(MISO) and 'Development'(DEV).
+This 'MISO-DEV-2014' is a project on the last day of 2014 using mruby, not a Japanese MISO project. :)
 Please see also <https://atnd.org/events/59470>.
 
 # Description
@@ -55,8 +56,8 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
   * UCB-BF512-EXT-A : <http://dsps.shop-pro.jp/?pid=82796604>
     * Board Schematic : <http://kaneko-sys.co.jp/datasheet/ucb-bf512-ext/UCB-BF512-EXT-A.pdf>
   * Support Page : <http://kaneko-sys.co.jp/support/>
-    * *Please do NOT ask them about this project!*
-    * *Please see also the license for this project!*
+    * **Please do NOT ask them about this project!**
+    * **Please see also the license for this project!**
 
 ## For the flash writer
 
