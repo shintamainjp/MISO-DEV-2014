@@ -13,7 +13,9 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 # Requirement
 
 * UCB-BF512-B (developed by Kaneko-System)
+
 ![](doc/images/UCB-BF512-B-COMPONENT.jpg)
+
 ![](doc/images/UCB-BF512-B-SOLDER.jpg)
 
 # Install
@@ -24,16 +26,21 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 
 # References
 
-## for mruby
+## For mruby
 
 * <http://forum.mruby.org/>
   * <http://forum.mruby.org/download/index3.html>
   * <https://github.com/mruby-Forum/mruby>
 
-## for the ADI Blackfin board
+## For the ADI Blackfin board
 
 * <http://kaneko-sys.co.jp/>
   * <http://kaneko-sys.co.jp/support/>
+
+## For the flash writer
+
+* <http://cubeatsystems.com/software/bfin-blueboot/bfin-blueboot_ja.html>
+* <http://cubeatsystems.com/software/bfin-blueboot/bfin-blueboot_en.html>
 
 # License
 
