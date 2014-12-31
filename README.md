@@ -46,6 +46,12 @@ Running mruby on the target platform is the goal.
 
 # References
 
+## For the processor
+
+* <http://www.analog.com/en/processors-dsp/blackfin/adsp-bf512/products/product.html>
+  * Data Sheet : <http://www.analog.com/static/imported-files/data_sheets/ADSP-BF512_514_514F16_516_518_518F16.pdf>
+  * Hardware Reference : <http://www.analog.com/static/imported-files/processor_manuals/ADSP-BF51x_hwr_rev1.2.pdf>
+
 ## For mruby
 
 * <http://forum.mruby.org/>
@@ -86,7 +92,7 @@ Running mruby on the target platform is the goal.
 
 # License
 
-* The license is MIT.
+* The license for my codes is MIT.
 
 # Author
 
