@@ -76,3 +76,15 @@ I am trying to use mruby on the ADI Blackfin board and am learning mruby in this
 
 Shinichiro Nakamura (CuBeatSystems) @shintamainjp
 
+# The development steps
+
+1. Get the target board for the mruby platform.
+  * You don't need it if you don't need running mruby on a embedded system.
+2. Get the USB to serial interface converter for the programming.
+  * Using a JTAG cable is better than the serial interface converter for the programming and the debugging.
+3. Install rake, bison for the compiling mruby, bfin-elf-gcc for the compiling Blackfin programs.
+  * Using Linux environment is easiest way to setup the development tools.
+4. Compile 'uart\_test' for checking your environment.
+  * Watch the output of UART, You will see some characters from the test program.
+
+
