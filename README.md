@@ -48,6 +48,10 @@ Running mruby on the target platform is the goal.
 
 ![](doc/images/bf512-memmap.png)
 
+# bfin-elf-ldr
+
+* <http://blackfin.uclinux.org/doku.php?id=toolchain:ldr-utils>
+
 # Install
 
 * Download mruby version 1.1.0 from <http://forum.mruby.org/download/source/mruby-1.1.0.tar.gz>.
@@ -100,6 +104,10 @@ Running mruby on the target platform is the goal.
   * Using Linux environment is easiest way to setup the development tools.
 4. Compile 'uart\_test' for checking your environment.
   * Watch the output of UART, You will see some characters from the test program.
+
+# The Thinking steps
+
+![](doc/images/mindmap.png)
 
 # License
 

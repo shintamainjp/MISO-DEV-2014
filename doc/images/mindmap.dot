@@ -1,0 +1,63 @@
+digraph MindMap
+{
+
+  rankdir=LR;
+  size="8,5";
+  concentrate=true;
+
+  node                          [style="rounded,filled,bold", shape=box, fixedsize=true, width=3.0, fontname="Arial"];
+  Init                          [fillcolor=black, shape=circle, label="", width=0.25];
+  Fini                          [fillcolor=black, shape=doublecircle, label="", width=0.3];
+
+  {
+    rank=source; Init;
+  }
+
+  {
+    rank=same; "mruby"; "Blackfin";
+  }
+
+  {
+    rank=destination; Fini;
+  }
+
+  edge                                                                      [style=bold, fontname="Arial", weight=100   ];
+  Init                              ->  "お正月だよお休みだ"                [label=""                                   ];
+  "お正月だよお休みだ"              ->  "気になっていたことをやろう"        [label=""                                   ];
+  "お正月だよお休みだ"              ->  "グダグダダラダラしよう"            [label=""                                   ];
+  "グダグダダラダラしよう"          ->  "ビール飲みながら焼き鳥"            [label=""                                   ];
+  "グダグダダラダラしよう"          ->  "お雑煮食べながらビール"            [label=""                                   ];
+  "気になっていたことをやろう"      ->  "mrubyで遊びたい"                   [label=""                                   ];
+  "mrubyで遊びたい"                 ->  "開発環境の整備が必要だ"            [label=""                                   ];
+  "開発環境の整備が必要だ"          ->  "mruby"                             [label=""                                   ];
+  "開発環境の整備が必要だ"          ->  "Blackfin"                          [label=""                                   ];
+  "mruby"                           ->  "bison"                             [label=""                                   ];
+  "mruby"                           ->  "rake"                              [label=""                                   ];
+  "Blackfin"                        ->  "bfin-elf-gcc"                      [label=""                                   ];
+  "Blackfin"                        ->  "bfin-blueboot"                     [label=""                                   ];
+  "mrubyで遊びたい"                 ->  "対象組み込み機器が欲しい"          [label=""                                   ];
+  "対象組み込み機器が欲しい"        ->  "UCB-BF512-B"                       [label=""                                   ];
+  "UCB-BF512-B"                     ->  "UCB-BF512-EXT-A"                   [label=""                                   ];
+  "UCB-BF512-B"                     ->  "FTDI社製TTL-232R-3V3"              [label=""                                   ];
+  "Blackfin"                        ->  "400MHzで動作するDSP"               [label=""                                   ];
+  "mruby"                           ->  "小規模組込機器で動作可能なRuby"    [label=""                                   ];
+  "小規模組込機器で動作可能なRuby"  ->  "割と楽しい組み合わせ！"            [label=""                                   ];
+  "400MHzで動作するDSP"             ->  "割と楽しい組み合わせ！"            [label=""                                   ];
+  "bison"                           ->  "環境揃った！"                      [label=""                                   ];
+  "rake"                            ->  "環境揃った！"                      [label=""                                   ];
+  "bfin-elf-gcc"                    ->  "環境揃った！"                      [label=""                                   ];
+  "bfin-blueboot"                   ->  "環境揃った！"                      [label=""                                   ];
+  "環境揃った！"                    ->  "とりあえずLinux上で実行"           [label=""                                   ];
+  "とりあえずLinux上で実行"         ->  "機器上で動作させたい"              [label=""                                   ];
+  "機器上で動作させたい"            ->  "Blackfinをbuild_config.rbに追加"   [label=""                                   ];
+  "Blackfinをbuild_config.rbに追加" ->  "On chip SRAMに入りきらない"        [label=""                                   ];
+  "On chip SRAMに入りきらない"      ->  "External SDRAMで実行させよう"      [label=""                                   ];
+  "External SDRAMで実行させよう"    ->  "bfin-elf-ldrでEBIUを初期化？"      [label=""                                   ];
+  "bfin-elf-ldrでEBIUを初期化？"    ->  "initcodeを指定すれば出来そう"      [label=""                                   ];
+
+  "mrubyが動作した！"               ->  Fini                                [label=""                                   ];
+
+  edge                                                                      [color="#aaaaaa", weight=1                  ];
+
+}
+
