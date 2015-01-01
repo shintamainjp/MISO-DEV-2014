@@ -34,39 +34,45 @@
 #include <cdefBF512.h>
 #include <builtins.h>
 
-static void SetSDRAM(void)
+static void sdram_init(void)
 {
-  //SDRAM Refresh Rate Setting
+  /*
+   * SDRAM Refresh Rate Setting
+   */
   *pEBIU_SDRRC = 0x307;
 
-  //SDRAM Memory Bank Control Register
+  /*
+   * SDRAM Memory Bank Control Register
+   */
   *pEBIU_SDBCTL =
-    EBCAW_10  | //Page size 1024
-    EBSZ_32   | //32 MB of SDRAM
-    EBE;   //SDRAM enable
+    EBCAW_9     | // SDRAM External Bank Column Address Width   =  9 Bits
+    EBSZ_32     | // SDRAM External Bank Size                   = 32 MB
+    EBE         ; // Enable SDRAM External Bank
 
-  //SDRAM Memory Global Control Register
+  /*
+   * SDRAM Memory Global Control Register
+   */
   *pEBIU_SDGCTL =
-    ~CDDBG  & // Control disable during bus grant off
-    ~TCSR & // Temperature compensated self-refresh off
-    ~EMREN  & // Extended mode register enabled off
-    ~FBBRW & // Fast back to back read to write off
-    ~EBUFE & // External buffering enabled off
-    ~SRFS & // Self-refresh setting off
-    ~PSM & // Powerup sequence mode (PSM) first
-    ~PUPSD & // Powerup start delay (PUPSD) off
-    PSS  | // Powerup sequence start enable (PSSE) on
-    TWR_2 | // Write to precharge delay TWR = 2 (14-15 ns)
-    TRCD_2 | // RAS to CAS delay TRCD =2 (15-20ns)
-    TRP_2 | // Bank precharge delay TRP = 2 (15-20ns)
-    TRAS_4 | // Bank activate command delay TRAS = 4
-    PASR_ALL| // Partial array self refresh
-    CL_3 | // CAS latency
-    SCTLE ; // SDRAM clock enable
+    ~CDDBG      & // Disabled : Tristate SDRAM Controls During Bus Grant
+    ~TCSR       & // Disabled : Temp-Compensated Self-Refresh Value (85 Deg C)
+    ~EMREN      & // Disabled : Extended Mode Register
+    ~FBBRW      & // Disabled : Fast Back-To-Back Read To Write
+    ~EBUFE      & // Disabled : External Buffering Timing
+    ~SRFS       & // Disabled : SDRAM Self-Refresh Mode
+    ~PSM        & // Disabled : Power-Up Sequence (Mode Register Before Refresh)
+    ~PUPSD      & // Disabled : Power-Up Start Delay (15 SCLK Cycles Delay)
+    PSS         | // Enabled  : Power-Up Sequence on Next SDRAM Access
+    TWR_2       | // Selected : SDRAM tWR = 2 cycles
+    TRCD_3      | // Selected : SDRAM tRCD = 3 cycles
+    TRP_2       | // Selected : SDRAM tRP = 2 cycles
+    TRAS_6      | // Selected : SDRAM tRAS = 6 cycles
+    PASR_ALL    | // Selected : All 4 SDRAM Banks Refreshed In Self-Refresh
+    CL_2        | // Selected : SDRAM CAS Latency = 2 cycles
+    SCTLE       ; // Enabled  : SDRAM signals
 }
 
 #if 0
-static void StatusSDRAM(void)
+static void sdram_status(void)
 {
   /* Bus Grant Status      */
   if ((*pEBIU_SDSTAT & BGSTAT)==BGSTAT) {
@@ -125,10 +131,12 @@ static void setup_pll(uint8_t mul_val, uint8_t div_val)
 int main(void)
 {
   setup_pll(16, 4);
-  SetSDRAM();
+
+  sdram_init();
 #if 0
-  StatusSDRAM();
+  sdram_status();
 #endif
+
   return 0;
 }
 

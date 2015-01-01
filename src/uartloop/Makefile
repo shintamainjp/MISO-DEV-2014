@@ -208,6 +208,7 @@ clean:
 	rm -f -r $(OBJDIR) | exit 0
 
 conv:
+#	bfin-elf-ldr -T BF512 -c $(PROJECT).ldr $(PROJECT).elf -i ../initcode/obj/initcode.elf
 	bfin-elf-ldr -T BF512 -c $(PROJECT).ldr $(PROJECT).elf
 
 #

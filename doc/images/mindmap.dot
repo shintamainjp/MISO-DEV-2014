@@ -54,6 +54,9 @@ digraph MindMap
   "On chip SRAMに入りきらない"      ->  "External SDRAMで実行させよう"      [label=""                                   ];
   "External SDRAMで実行させよう"    ->  "bfin-elf-ldrでEBIUを初期化？"      [label=""                                   ];
   "bfin-elf-ldrでEBIUを初期化？"    ->  "initcodeを指定すれば出来そう"      [label=""                                   ];
+  "initcodeを指定すれば出来そう"    ->  "データシートが欲しい"              [label=""                                   ];
+  "データシートが欲しい"            ->  "MT48LC16M16A2"                     [label=""                                   ];
+  "データシートが欲しい"            ->  "AS4C16M16S"                        [label=""                                   ];
   "割と楽しい組み合わせ！"          ->  "なんか色々ありますなぁ"            [label=""                                   ];
 
   "mrubyが動作した！"               ->  Fini                                [label=""                                   ];
