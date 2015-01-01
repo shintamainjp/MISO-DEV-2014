@@ -32,7 +32,7 @@ CPU = bf512-0.2
 #
 # Linker script for the target MCU
 #
-LINKSCRIPT =
+LINKSCRIPT = ucb-bf512.ld
 
 #
 # Output file format (ihex, bin or both) and debugger type
@@ -100,7 +100,7 @@ ASFLAGS += $(addprefix -D,$(ADEFS)) -Wa,-g$(DEBUG)
 LDFLAGS += -Wl,-Map=$(PROJECT).map,--cref,--gc-sections
 LDFLAGS += -lgcc
 LDFLAGS += $(patsubst %,-L%,$(LIBDIRS)) $(patsubst %,-l%,$(LIBS))
-#LDFLAGS += -T$(LINKSCRIPT)
+LDFLAGS += -T$(LINKSCRIPT)
 #LDFLAGS += -nostartfiles
 #LDFLAGS += -nodefaultlibs
 #LDFLAGS += -nostdlib

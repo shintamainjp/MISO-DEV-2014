@@ -37,6 +37,13 @@ Running mruby on the target platform is the goal.
 
 ![](doc/images/TTL-232R-3V3.jpg)
 
+## Version of bfin-elf-gcc
+
+> bfin-elf-gcc (ADI-2014R1-RC2) 4.3.5
+> Copyright (C) 2008 Free Software Foundation, Inc.
+> This is free software; see the source for copying conditions.  There is NO
+> warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 # Memory Map
 
 ![](doc/images/bf512-memmap.png)
