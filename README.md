@@ -55,6 +55,8 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ## The external memory
 
 * MT48LC16M16A2
+  * <http://www.analog.com/static/imported-files/application_notes/EE-326.pdf>
+  * <http://www.analog.com/static/imported-files/application_notes/EE-210.pdf>
 
 ## bfin-elf-ldr
 
