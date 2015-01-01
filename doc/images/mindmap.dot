@@ -2,7 +2,7 @@ digraph MindMap
 {
 
   rankdir=LR;
-  size="8,5";
+  size="32,16";
   concentrate=true;
 
   node                          [style="rounded,filled,bold", shape=box, fixedsize=true, width=3.0, fontname="Arial"];
