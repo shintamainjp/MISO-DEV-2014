@@ -52,6 +52,10 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ![](doc/images/bf512-memmap.png)
 
+## The external memory
+
+* MT48LC16M16A2
+
 ## bfin-elf-ldr
 
 * <http://blackfin.uclinux.org/doku.php?id=toolchain:ldr-utils>
