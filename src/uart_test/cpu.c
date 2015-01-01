@@ -39,6 +39,13 @@
 #define UART0_BAUDRATE  (57600)
 #define UART0_DIVISOR   (SCLOCK_HZ / 16 / UART0_BAUDRATE)
 
+static void init_external_bus_interface_unit(void)
+{
+  /**
+   * @todo Implement this!
+   */
+}
+
 static void setup_pll(uint8_t mul_val, uint8_t div_val)
 {
   *pSIC_IWR = IWR_ENABLE(0);
@@ -70,6 +77,7 @@ static void init_uart(void)
  */
 void cpu_init(void)
 {
+  init_external_bus_interface_unit();
   setup_pll(16, 4);
   init_uart();
 }
