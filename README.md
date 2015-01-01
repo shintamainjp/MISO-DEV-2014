@@ -58,6 +58,8 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
   * <http://www.analog.com/static/imported-files/application_notes/EE-326.pdf>
   * <http://www.analog.com/static/imported-files/application_notes/EE-210.pdf>
 
+![](doc/images/sdram-params.png)
+
 ## bfin-elf-ldr
 
 * <http://blackfin.uclinux.org/doku.php?id=toolchain:ldr-utils>
