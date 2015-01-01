@@ -43,7 +43,7 @@ DEBUG   = dwarf-2
 #
 # Include dirs, library dirs and definitions
 #
-LIBS    = mruby m c bfdsp
+LIBS    = m c bfdsp
 LIBDIRS = ../mruby-1.1.0/build/blackfin/lib/
 INCDIRS = $(DIRS)
 DEFS    =

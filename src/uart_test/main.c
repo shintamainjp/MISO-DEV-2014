@@ -31,12 +31,32 @@
  */
 
 #include "cpu.h"
-#include "mruby.h"
+//#include "mruby.h"
+
+static void sdram_test(void)
+{
+  unsigned int volatile *memptr = (unsigned int *)0x00000000;
+  int i;
+  for (i = 0; i < 16; i++) {
+    *memptr = i;
+  }
+  for (i = 0; i < 16; i++) {
+    if (*memptr != i) {
+      cpu_uart_putc('N');
+      cpu_uart_putc('G');
+      cpu_uart_putc('!');
+      return;
+    }
+  }
+  cpu_uart_putc('O');
+  cpu_uart_putc('K');
+  cpu_uart_putc('!');
+}
 
 static void mruby_test(void)
 {
-  mrb_state *mrb = mrb_open();
-  mrb_close(mrb);
+//  mrb_state *mrb = mrb_open();
+//  mrb_close(mrb);
 }
 
 static void uart_test(void)
@@ -53,6 +73,7 @@ int main(void)
 {
   cpu_init();
 
+  sdram_test();
   mruby_test();
   uart_test();
 
