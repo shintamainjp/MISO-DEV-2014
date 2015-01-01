@@ -6,7 +6,15 @@
 # Version 0.1.0
 #
 
-TARGETS=`find . -regex '.*\.[ch]$' -print`
+DIRNAME="$1"
+
+if [ ! "$#" = "1" ]
+then
+  echo "srchead.sh [target directory]"
+  exit
+fi
+
+TARGETS=`find ./$DIRNAME -regex '.*\.[ch]$' -print`
 INSFILE="srchead.txt"
 TXT_START="/\*\*"
 TXT_END=" \*/"
