@@ -34,12 +34,84 @@
 #include <cdefBF512.h>
 #include <builtins.h>
 
-static void init_external_bus_interface_unit(void)
+static void SetSDRAM(void)
 {
-  /**
-   * @todo Implement this!
-   */
+  //SDRAM Refresh Rate Setting
+  *pEBIU_SDRRC = 0x307;
+
+  //SDRAM Memory Bank Control Register
+  *pEBIU_SDBCTL =
+    EBCAW_10  | //Page size 1024
+    EBSZ_64   | //64 MB of SDRAM
+    EBE;   //SDRAM enable
+
+  //SDRAM Memory Global Control Register
+  *pEBIU_SDGCTL =
+    ~CDDBG  & // Control disable during bus grant off
+    ~TCSR & // Temperature compensated self-refresh off
+    ~EMREN  & // Extended mode register enabled off
+    ~FBBRW & // Fast back to back read to write off
+    ~EBUFE & // External buffering enabled off
+    ~SRFS & // Self-refresh setting off
+    ~PSM & // Powerup sequence mode (PSM) first
+    ~PUPSD & // Powerup start delay (PUPSD) off
+    PSS  | // Powerup sequence start enable (PSSE) on
+    TWR_2 | // Write to precharge delay TWR = 2 (14-15 ns)
+    TRCD_2 | // RAS to CAS delay TRCD =2 (15-20ns)
+    TRP_2 | // Bank precharge delay TRP = 2 (15-20ns)
+    TRAS_4 | // Bank activate command delay TRAS = 4
+    PASR_ALL| // Partial array self refresh
+    CL_3 | // CAS latency
+    SCTLE ; // SDRAM clock enable
 }
+
+#if 0
+static void StatusSDRAM(void)
+{
+  /* Bus Grant Status      */
+  if ((*pEBIU_SDSTAT & BGSTAT)==BGSTAT) {
+    printf("\n Bus granted \n");
+  } else {
+    printf("\n Bus not granted \n");
+  }
+
+
+  /* SDRAM EAB Sticky Error Status  */
+  if ((*pEBIU_SDSTAT & SDEASE)==SDEASE) {
+    printf(" EAB access generated an error \n");
+  } else {
+    printf(" No error detected \n");
+  }
+
+  /* SDRAM Will Power-Up On Next Access */
+  if ((*pEBIU_SDSTAT & SDRS)==SDRS) {
+    printf(" Will power up on next SDRAM access  \n");
+  } else {
+    printf(" Will not power up on next SDRAM access / SDRAM already powered up\n");
+  }
+
+  /* SDRAM Controller Idle     */
+  if ((*pEBIU_SDSTAT & SDCI)==SDCI) {
+    printf(" SDC is idle \n");
+  } else {
+    printf(" SDC is busy \n");
+  }
+
+  /* SDRAM Self-Refresh Active   */
+  if ((*pEBIU_SDSTAT & SDSRA)==SDSRA) {
+    printf(" SDRAM in self refresh mode\n");
+  } else {
+    printf(" SDRAM not in self refresh mode \n");
+  }
+
+  /* SDRAM Power-Up Active     */
+  if ((*pEBIU_SDSTAT & SDPUA)==SDPUA) {
+    printf(" SDC in powerup sequence \n");
+  } else {
+    printf(" SDC not in powerup sequence \n");
+  }
+}
+#endif
 
 static void setup_pll(uint8_t mul_val, uint8_t div_val)
 {
@@ -52,8 +124,11 @@ static void setup_pll(uint8_t mul_val, uint8_t div_val)
 
 int main(void)
 {
-  init_external_bus_interface_unit();
   setup_pll(16, 4);
+  SetSDRAM();
+#if 0
+  StatusSDRAM();
+#endif
   return 0;
 }
 
