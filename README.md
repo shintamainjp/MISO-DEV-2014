@@ -39,10 +39,12 @@ Running mruby on the target platform is the goal.
 
 ## Version of bfin-elf-gcc
 
-> bfin-elf-gcc (ADI-2014R1-RC2) 4.3.5
-> Copyright (C) 2008 Free Software Foundation, Inc.
-> This is free software; see the source for copying conditions.  There is NO
-> warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+bfin-elf-gcc (ADI-2014R1-RC2) 4.3.5
+Copyright (C) 2008 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
 
 # Development Notes
 
@@ -54,26 +56,28 @@ Running mruby on the target platform is the goal.
 
 * <http://blackfin.uclinux.org/doku.php?id=toolchain:ldr-utils>
 
-> $ bfin-elf-ldr --create --help
-> Usage: ldr create [options] <arguments>
->
-> Options: -[fvqhVp:g:d:B:w:H:s:b:i:P:M]
->   -p, --port            <F|G|H>         * (BF53x) PORT for HWAIT signal
->   -g, --gpio            <#>             * (BF53x) GPIO for HWAIT signal
->   -d, --dma             <#>             * (BF54x) DMA flag
->   -B, --bits            <bits>          * (BF56x) Flash bits (8bit)
->   -w, --waitstate       <num>           * (BF56x) Wait states (15)
->   -H, --holdtimes       <num>           * (BF56x) Flash Hold time cycles (3)
->   -s, --spibaud         <baud>          * (BF56x) SPI boot baud rate (500k)
->   -b, --blocksize       <size>          * Block size of DXE (0x8000)
->   -i, --initcode        <file>          * Init code
->   -P, --punchit         <off:size[:filler]> * Punch an ignore hole
->   -M, --use-vmas                        * Use ELF VMAs for target addresses
->   -f, --force                           * Ignore problems
->   -v, --verbose                         * Make a lot of noise
->   -q, --quiet                           * Only show errors
->   -h, --help                            * Print this help and exit
->   -V, --version                         * Print version and exit
+```
+$ bfin-elf-ldr --create --help
+Usage: ldr create [options] <arguments>
+
+Options: -[fvqhVp:g:d:B:w:H:s:b:i:P:M]
+  -p, --port            <F|G|H>         * (BF53x) PORT for HWAIT signal
+  -g, --gpio            <#>             * (BF53x) GPIO for HWAIT signal
+  -d, --dma             <#>             * (BF54x) DMA flag
+  -B, --bits            <bits>          * (BF56x) Flash bits (8bit)
+  -w, --waitstate       <num>           * (BF56x) Wait states (15)
+  -H, --holdtimes       <num>           * (BF56x) Flash Hold time cycles (3)
+  -s, --spibaud         <baud>          * (BF56x) SPI boot baud rate (500k)
+  -b, --blocksize       <size>          * Block size of DXE (0x8000)
+  -i, --initcode        <file>          * Init code
+  -P, --punchit         <off:size[:filler]> * Punch an ignore hole
+  -M, --use-vmas                        * Use ELF VMAs for target addresses
+  -f, --force                           * Ignore problems
+  -v, --verbose                         * Make a lot of noise
+  -q, --quiet                           * Only show errors
+  -h, --help                            * Print this help and exit
+  -V, --version                         * Print version and exit
+```
 
 # Install
 
