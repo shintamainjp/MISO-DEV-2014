@@ -42,7 +42,7 @@ static void SetSDRAM(void)
   //SDRAM Memory Bank Control Register
   *pEBIU_SDBCTL =
     EBCAW_10  | //Page size 1024
-    EBSZ_64   | //64 MB of SDRAM
+    EBSZ_32   | //32 MB of SDRAM
     EBE;   //SDRAM enable
 
   //SDRAM Memory Global Control Register
