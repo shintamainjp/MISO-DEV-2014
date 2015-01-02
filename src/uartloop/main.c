@@ -30,8 +30,47 @@
  * ===============================================================
  */
 
+#include <cdefBF512.h>
+#include <builtins.h>
 #include "cpu.h"
 // #include "mruby.h"
+
+static void sdram_init(void)
+{
+  /*
+   * SDRAM Refresh Rate Setting
+   */
+  *pEBIU_SDRRC = 0x307;
+
+  /*
+   * SDRAM Memory Bank Control Register
+   */
+  *pEBIU_SDBCTL =
+    EBCAW_9     | // SDRAM External Bank Column Address Width   =  9 Bits
+    EBSZ_32     | // SDRAM External Bank Size                   = 32 MB
+    EBE         ; // Enable SDRAM External Bank
+
+  /*
+   * SDRAM Memory Global Control Register
+   */
+  *pEBIU_SDGCTL =
+    ~CDDBG      & // Disabled : Tristate SDRAM Controls During Bus Grant
+    ~TCSR       & // Disabled : Temp-Compensated Self-Refresh Value (85 Deg C)
+    ~EMREN      & // Disabled : Extended Mode Register
+    ~FBBRW      & // Disabled : Fast Back-To-Back Read To Write
+    ~EBUFE      & // Disabled : External Buffering Timing
+    ~SRFS       & // Disabled : SDRAM Self-Refresh Mode
+    ~PSM        & // Disabled : Power-Up Sequence (Mode Register Before Refresh)
+    ~PUPSD      & // Disabled : Power-Up Start Delay (15 SCLK Cycles Delay)
+    PSS         | // Enabled  : Power-Up Sequence on Next SDRAM Access
+    TWR_2       | // Selected : SDRAM tWR = 2 cycles
+    TRCD_3      | // Selected : SDRAM tRCD = 3 cycles
+    TRP_2       | // Selected : SDRAM tRP = 2 cycles
+    TRAS_6      | // Selected : SDRAM tRAS = 6 cycles
+    PASR_ALL    | // Selected : All 4 SDRAM Banks Refreshed In Self-Refresh
+    CL_2        | // Selected : SDRAM CAS Latency = 2 cycles
+    SCTLE       ; // Enabled  : SDRAM signals
+}
 
 static void mruby_test(void)
 {
@@ -51,9 +90,32 @@ static void uart_test(void)
   }
 }
 
+static void sdram_junk_test(void)
+{
+  unsigned int volatile *reg = (unsigned int *)0x00000000;
+  int i;
+  for (i = 0; i < 32; i++) {
+    *(reg + i) = i;
+  }
+  for (i = 0; i < 32; i++) {
+    if (*(reg + i) != i) {
+      cpu_uart_putc('N');
+      cpu_uart_putc('G');
+      cpu_uart_putc('!');
+      return;
+    }
+  }
+  cpu_uart_putc('O');
+  cpu_uart_putc('K');
+  cpu_uart_putc('!');
+}
+
 int main(void)
 {
   cpu_init();
+
+  sdram_init();
+  sdram_junk_test();
 
   mruby_test();
   uart_test();
