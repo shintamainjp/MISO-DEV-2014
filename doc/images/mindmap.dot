@@ -57,7 +57,18 @@ digraph MindMap
   "initcodeを指定すれば出来そう"    ->  "データシートが欲しい"              [label=""                                   ];
   "データシートが欲しい"            ->  "MT48LC16M16A2"                     [label=""                                   ];
   "データシートが欲しい"            ->  "AS4C16M16S"                        [label=""                                   ];
+  "データシートが欲しい"            ->  "EBIUの初期化を追加した"            [label=""                                   ];
+  "initcodeを指定すれば出来そう"    ->  "期待通りの動作じゃない様子"        [label=""                                   ];
+  "期待通りの動作じゃない様子"      ->  "bfin-elf-ldrの使い方間違ってる?"   [label=""                                   ];
   "割と楽しい組み合わせ！"          ->  "なんか色々ありますなぁ"            [label=""                                   ];
+  "External SDRAMで実行させよう"    ->  "ブートローダが欲しい"              [label=""                                   ];
+  "ブートローダが欲しい"            ->  "u-boot?"                           [label=""                                   ];
+  "u-boot?"                         ->  "もっとシンプルなものが欲しい"      [label=""                                   ];
+  "u-boot?"                         ->  "ライセンスが・・・"                [label=""                                   ];
+  "ライセンスが・・・"              ->  "じゃあ作るか！"                    [label=""                                   ];
+  "もっとシンプルなものが欲しい"    ->  "じゃあ作るか！"                    [label=""                                   ];
+  "じゃあ作るか！"                  ->  "Blackfin BlueBootベースで良い?"    [label=""                                   ];
+  "Blackfin BlueBootベースで良い?"  ->  "ちょっとBlueBootも改良したいな"    [label=""                                   ];
 
   "mrubyが動作した！"               ->  Fini                                [label=""                                   ];
 
