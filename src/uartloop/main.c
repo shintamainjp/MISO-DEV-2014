@@ -114,8 +114,10 @@ int main(void)
 {
   cpu_init();
 
+#if 0
   sdram_init();
   sdram_junk_test();
+#endif
 
   mruby_test();
   uart_test();
